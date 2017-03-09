@@ -1756,6 +1756,7 @@ OCTET_STRING_decode_aper(asn_codec_ctx_t *opt_codec_ctx,
 	/* X.691, #16.7: long fixed length encoding (up to 64K octets) */
 	if(csiz->effective_bits == 0) {
 		int ret;
+#if 0
 		if (st->size > 2) {
 			/* consume align bits if size are greater than 2 octet */
 			ret = aper_get_align_bits(pd);
@@ -1763,6 +1764,7 @@ OCTET_STRING_decode_aper(asn_codec_ctx_t *opt_codec_ctx,
 				RETURN(RC_FAIL);
 			}
 		}
+#endif
 		if(bpc) {
 			ASN_DEBUG("Decoding OCTET STRING size %lld",
 				csiz->upper_bound);
