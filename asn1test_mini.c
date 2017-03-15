@@ -10,7 +10,7 @@ BCCH_DL_SCH_Message_NB_t *bcch_dl_sch_deserializer(const void *buffer, size_t bu
 {
   BCCH_DL_SCH_Message_NB_t *bcch = 0;
 
-  asn_dec_rval_t rval = aper_decode(0, &asn_DEF_BCCH_DL_SCH_Message_NB, (void **)&bcch, buffer, buf_size, 0, 0);
+  asn_dec_rval_t rval = uper_decode(0, &asn_DEF_BCCH_DL_SCH_Message_NB, (void **)&bcch, buffer, buf_size, 0, 0);
   if(rval.code == RC_OK) {
     printf("Consumed %d bits.\n", rval.consumed);
     return bcch;
